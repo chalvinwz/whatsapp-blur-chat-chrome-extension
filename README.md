@@ -51,7 +51,6 @@ If you want to remove the extension:
 ---
 
 ### Notes  
-- This extension only works on webpages that contain elements with the role `"listitem"`.  
 - If a page dynamically loads new content, the extension will continue applying the blur effect.  
 
-Enjoy browsing with automatic blur protection! 🎭🔍  
+Enjoy automatic blur protection! 🎭🔍  
