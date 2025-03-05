@@ -1,29 +1,31 @@
 (function () {
   'use strict';
 
-  // Function to apply the blur style
+  // Function to apply blur to all list items
   function applyBlur() {
-    const targetDivs = document.querySelectorAll('div._aigw');
-    if (targetDivs.length > 0) {
-      targetDivs.forEach((div) => {
-        // Add blur style
-        div.style.filter = 'blur(5px)';
-        div.style.transition = 'filter 1s ease';
+    const targetElements = document.querySelectorAll('[role="listitem"]');
 
-        // Add event listeners for hover
-        div.addEventListener('mouseenter', () => {
-          div.style.filter = 'none'; // Remove blur on hover
+    if (targetElements.length > 0) {
+      targetElements.forEach((element) => {
+        // Apply blur initially
+        element.style.filter = 'blur(5px)';
+        element.style.transition = 'filter 0.3s ease';
+
+        // Add event listeners to unblur on hover and re-blur when not hovered
+        element.addEventListener('mouseover', function () {
+          this.style.filter = 'none'; // Unblur on hover
         });
 
-        div.addEventListener('mouseleave', () => {
-          div.style.filter = 'blur(5px)'; // Reapply blur when not hovering
+        element.addEventListener('mouseout', function () {
+          this.style.filter = 'blur(5px)'; // Reapply blur when not hovering
         });
       });
-      console.log(`Blur style applied to ${targetDivs.length} div(s).`);
+
+      console.log(`Blur applied to ${targetElements.length} list items.`);
     }
   }
 
-  // Debounce function to limit the rate of execution
+  // Debounce function to limit execution rate
   function debounce(func, wait) {
     let timeout;
     return function (...args) {
@@ -32,13 +34,13 @@
     };
   }
 
-  // Debounced version of applyBlur
+  // Debounced version of event handler
   const debouncedApplyBlur = debounce(applyBlur, 100);
 
-  // Apply the blur style immediately (if the div already exists)
+  // Apply blur on page load
   applyBlur();
 
-  // Set up a MutationObserver to detect when the div is added dynamically
+  // Observe dynamically added elements
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.type === 'childList') {
@@ -50,8 +52,9 @@
   // Start observing the document body for changes
   observer.observe(document.body, { childList: true, subtree: true });
 
-  // Disconnect the observer when the script is no longer needed
+  // Disconnect observer when the page unloads
   window.addEventListener('unload', () => {
     observer.disconnect();
   });
+
 })();
