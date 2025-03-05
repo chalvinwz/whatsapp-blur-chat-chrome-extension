@@ -20,8 +20,6 @@
           this.style.filter = 'blur(5px)'; // Reapply blur when not hovering
         });
       });
-
-      console.log(`Blur applied to ${targetElements.length} list items.`);
     }
   }
 
