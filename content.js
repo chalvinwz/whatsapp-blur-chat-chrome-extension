@@ -8,7 +8,7 @@
       targetDivs.forEach((div) => {
         // Add blur style
         div.style.filter = 'blur(5px)';
-        div.style.transition = 'filter 0.3s ease';
+        div.style.transition = 'filter 1s ease';
 
         // Add event listeners for hover
         div.addEventListener('mouseenter', () => {

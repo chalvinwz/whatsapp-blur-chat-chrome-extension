@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Auto Blur Div Extension",
-  "version": "1.1",
+  "version": "1.2",
   "description": "Automatically applies blur to divs with class '_aigw'.",
   "permissions": ["scripting"],
   "host_permissions": ["<all_urls>"],
