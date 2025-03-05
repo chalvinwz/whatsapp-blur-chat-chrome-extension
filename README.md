@@ -1,6 +1,5 @@
-# Auto Blur Div Extension  
-
-This Chrome extension automatically applies a blur effect to elements with the role `"listitem"` on webpages. The blur effect disappears when hovering over the elements and reapplies when the cursor moves away.
+# Whatsapp Web Chat Blur
+The blur effect disappears when hovering over the elements and reapplies when the cursor moves away.
 
 ## Features  
 ✅ Automatically blurs targeted elements  
