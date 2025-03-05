@@ -1,4 +1,3 @@
-// content.js
 (function () {
   'use strict';
 
@@ -7,8 +6,17 @@
     const targetDivs = document.querySelectorAll('div._aigw');
     if (targetDivs.length > 0) {
       targetDivs.forEach((div) => {
-        requestAnimationFrame(() => {
-          div.style.filter = 'blur(5px)';
+        // Add blur style
+        div.style.filter = 'blur(5px)';
+        div.style.transition = 'filter 0.3s ease';
+
+        // Add event listeners for hover
+        div.addEventListener('mouseenter', () => {
+          div.style.filter = 'none'; // Remove blur on hover
+        });
+
+        div.addEventListener('mouseleave', () => {
+          div.style.filter = 'blur(5px)'; // Reapply blur when not hovering
         });
       });
       console.log(`Blur style applied to ${targetDivs.length} div(s).`);
