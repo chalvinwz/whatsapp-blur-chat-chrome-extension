@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Auto Blur Div Extension",
+  "version": "1.0",
+  "description": "Automatically applies blur to divs with class '_aigw'.",
+  "permissions": ["scripting"],
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "icons": {
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_icon": {
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  }
+}
